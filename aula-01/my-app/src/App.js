@@ -15,8 +15,8 @@ class App extends React.Component {
 
   setStateHandle () {
     let item = "setState ...";
-    let myArray = [...this.state.data]
-    console.log(myArray);
+    let myArray = [...this.state.data];
+    
     myArray.push(item);
     this.setState({data: myArray});
   }
