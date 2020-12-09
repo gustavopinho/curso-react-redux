@@ -9,17 +9,17 @@ class App extends React.Component {
       data: 'Initial data...'
     };
 
-    this.updateStatus = this.updateStatus.bind(this);
+    this.updateState = this.updateState.bind(this);
   }
 
-  updateStatus (event) {
-    this.setState({ data: event.target.value });
+  updateState () {
+    this.setState({ data: 'Data updated...' });
   }
     
   render() {
     return (
       <div>
-        <input type="text" value={this.state.data} onChange = {this.updateStatus} />
+        <button onClick = {this.updateState}>CLICK</button>
         <h4>{ this.state.data }</h4>
       </div>
     );
