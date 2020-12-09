@@ -1,24 +1,23 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import './App.css';
+import ReactDOM from 'react-dom';
 
 class App extends React.Component {
   constructor() {
     super();
     
-    //this.forceUpdateHandler = this.forceUpdateHandler.bind(this);
+    this.findDomNodeHandler = this.findDomNodeHandler.bind(this);
   }
 
-  // Sintax experimental
-  forceUpdateHandler = () => {
-    this.forceUpdate();
+  findDomNodeHandler () {
+    const myDiv = document.getElementById('myDiv');
+    ReactDOM.findDOMNode(myDiv).style.color = ReactDOM.findDOMNode(myDiv).style.color == 'green' ? 'red' : 'green';
   }
     
   render() {
     return (
       <div>
-        <button onClick={ this.forceUpdateHandler}>FORCE UPDATE</button>
-        <h4> Random number: { Math.random() }</h4>
+        <button onClick = {this.findDomNodeHandler}>FIND DOME NODE</button>
+        <div id = "myDiv">NODE</div>
       </div>
     );
   }
