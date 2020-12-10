@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+//import ReactDOM from 'react-dom';
 
 class App extends React.Component {
   constructor() {
@@ -8,6 +8,8 @@ class App extends React.Component {
     this.state = {
       data: ''
     };
+
+    this.myInput = React.createRef();
 
     this.updateState = this.updateState.bind(this);
     this.clearInput = this.clearInput.bind(this);
@@ -19,13 +21,14 @@ class App extends React.Component {
 
   clearInput () {
     this.setState({ data: '' });
-    ReactDOM.findDOMNode(this.refs.myInput).focus();
+    //ReactDOM.findDOMNode(this.refs.myInput).focus();
+    this.myInput.current.focus();
   }
     
   render() {
     return (
       <div>
-        <input value={this.state.data} onChange={this.updateState} ref="myInput" />
+        <input value={this.state.data} onChange={this.updateState} ref={this.myInput} />
         <button onClick={this.clearInput}>CLEAR</button>
         <h4>{this.state.data}</h4>
       </div>
